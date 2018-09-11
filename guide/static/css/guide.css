@@ -1,0 +1,61 @@
+body {
+	background-image: url("../images/2background.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+
+
+#content #banRose {
+	
+	padding: 30px 40px 30px 40px;
+
+}
+
+#content section {
+
+	
+}
+
+
+#content button[type="submit"]{
+	background: white;
+	width: 200px;
+	height: 35px;
+	border:none;
+	border-radius: 50px;
+	font-family: renner;
+	font-size: 22px;
+	margin: 0px 0 30px 0px ;
+}
+
+#content #banRose ul {
+	margin: 0 0 35px 0;
+}
+
+#content #banBleue {
+
+}
+
+
+#content #banBleue article {
+	margin: 10px 60px 10px 40px;
+	padding: 0 0 10px 0 ;
+	border-bottom: 1px white solid ;
+
+	
+
+}
+
+
+#content #banBleue ul {
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0 0 0 15px;
+}
+
+#content #banBleue a {
+	color: white;
+	font-family: renner;
+	text-decoration: none;
+}

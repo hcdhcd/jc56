@@ -1,0 +1,38 @@
+{% load static %}
+{% load thumbnail %}
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<title>{% block title %} {% endblock %}</title>
+
+		<link rel="stylesheet" type="text/css" href="supprimer/test.css">
+		
+
+	</head>
+	{% for i in bim %}
+
+		<div>
+			<p> {{i}} </p>
+			<p id ="id{{i}}" > JeanClaude56 </p>
+		</div>
+
+	{% endfor %}
+
+
+	<body >
+
+
+
+	</body>
+
+</html>
+
+
+
+

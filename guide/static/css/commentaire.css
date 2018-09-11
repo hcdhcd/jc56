@@ -1,0 +1,149 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: 'steelfish';
+	src: url('../../static/police/steelfish/steelfish rg.ttf');
+}
+
+
+footer{
+	
+	
+	padding: 20px;
+	font-family: 'renner';
+	
+	
+	background: black;
+}
+
+footer .hidden{
+	display: none;
+}
+
+footer #publication{
+	
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	
+	justify-content: center;
+	width: 960px;
+
+	
+}
+
+footer #publication p{
+	text-align: center;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: white;
+
+
+	
+}
+footer #publication p a {
+	color:white;
+	font-style: underline;
+}
+
+
+footer #publication #com {
+	
+	
+	width: 983px;
+	padding:  5px 0 2px 0;
+	color:black;
+	border: 1px hidden;
+	border-radius: 12px 12px 0 0;
+
+	background: lightgrey;
+
+	
+}
+
+footer #publication form{
+
+	text-align: center;
+	
+
+
+}
+
+footer #publication p , footer #publication p{
+	color:white;
+	font-style: underline;
+}
+
+
+footer #publication button {
+	background: white;
+	width: 300px;
+	height: 35px;
+	border:hidden;
+	border-radius: 50px;
+	font-family: renner;
+	font-size: 22px;
+	margin: 15px 0 0 0;
+
+}
+
+footer #article_commentaires{
+	
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80%;
+	
+	padding: 0;
+
+}
+
+
+footer .commentaires_conteneur{
+	display: flex;
+	background: white;
+	margin: 10px;
+	padding: 0px;
+	border-radius: 1px;
+	background: rgb(229, 229, 229);
+}
+
+footer #imageconteneur{
+	line-height: 0px;
+}
+
+footer .commentaire{
+	padding: 0;
+	margin: 0 0 0 20px;
+}
+
+
+footer .DetailsParution {
+	display: flex;
+}
+
+
+
+
+footer .DetailsParution{
+	font-size: 13px;
+	color: grey ;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+footer .DetailsParution button[type="submit"]{
+
+	border: none;
+	background: none;
+	font-weight: bold;
+	text-decoration: underline;
+	color: grey;
+	margin:-5px 0 0 10px;
+	
+}

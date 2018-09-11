@@ -1,0 +1,111 @@
+
+{% load static %}
+{% load thumbnail %}
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+
+		<meta charset="utf-8" />
+
+		<title>{% block title %} {% endblock %}</title>
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/banniere.css' %}">
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/DefaultBody.css' %}">
+		{% endblock %}
+		{% include "fancybox/fancybox_css.html" %}
+
+	</head>
+
+
+	<body >
+
+
+
+
+	<header> 
+	{% block header %}
+
+
+
+		<h1> <a href="{% url 'accueil' %}"> JeanClaude56</a>  </h1> 
+
+			<form action="http://localhost:8000/guide" method="get">
+						<input type="text" name="rechercher" placeholder="Rechercher" id="rechercher" >
+						<button type="submit" ></button>
+						
+					</form>	
+
+		<nav id="nav_banniere">
+				<ul>
+				
+						
+					<a href="{% url 'guide' %}">	<li>Jeux</li>	</a>
+					<a href="{% url 'guide' %}">	<li>Actus</li>	</a>
+					<a href="{% url 'contact' %}">	<li>Fanzone</li>	</a>
+					<a href="{% url 'ArticleVue' 'gravity_rush2' 'algorithme' %}"> <li>	algorithme</li>	</a>
+				
+						{% if user.is_authenticated %}
+					<a href="{% url 'mon_compte' %}"><li>Mon Compte</li></a>
+					<a href="{% url 'deconnexion' %}"><li>Deconnexion</li></a>
+				</ul>
+			</nav>
+
+					<p>
+						{% thumbnail user.profil.avatar "100x100" as im %}
+					<img src="{{ im.url }}" id="avatar_ban">
+					{% endthumbnail %}
+					</p>
+					
+				
+			
+						{% else %}
+					<a href="{% url 'connexion' %}"><li>Connexion</li></a>
+					<a href="{% url 'inscription' %}"><li>Inscription</li></a>
+					
+				</ul>
+			</nav>
+				{% endif %}
+				
+			
+		
+		
+
+	{% endblock %}
+	</header>
+
+<!-- MISE EN PAGE3 SUR FOOTER ET SECTION -->
+
+
+
+
+	<div class="page">	
+	
+
+			<section id='content'>
+					{% block content %}
+					{% endblock %}
+			</section>
+				
+
+
+			<footer> {% block footer %} 
+				 
+
+					{% endblock %}
+			</footer>
+
+
+		
+
+</div>
+{% include "fancybox/fancybox_js.html" %}
+
+	</body>
+
+</html>

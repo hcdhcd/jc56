@@ -1,0 +1,87 @@
+@font-face {
+	font-family: 'renner';
+	src: url('../../static/police/Renner/Renner_ 400 Book.ttf');
+}
+
+
+
+body {
+	background: lightgrey;
+	max-height: 100vh;
+	background: url("../images/2background.jpg");
+	background-size: cover;
+}
+/*.page {
+	height: 100%;
+}
+*/
+#content{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+#content form {
+	font-family: renner;
+	font-size: 20px;
+	color: white;
+	height: calc(100vh - 100px);
+	
+	
+	width: 700px;
+	
+	background: rgb(199, 44, 72);
+	
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	
+}
+
+
+#content form label {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+
+
+
+
+#content form input[type="text"], #content form input[type="password"], #content form input[type="email"], form input[type="checkbox"] {
+	width:250px;
+
+	
+	
+
+}
+
+#content button[type="submit"]{
+	background: white;
+	width: 300px;
+	height: 35px;
+	border:none;
+	border-radius: 50px;
+	font-family: renner;
+	font-size: 22px;
+	margin: 10px 0 0 0px ;
+	
+
+	
+}
+
+footer {
+	display: none;
+}

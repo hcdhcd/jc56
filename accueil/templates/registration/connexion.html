@@ -1,0 +1,47 @@
+{% extends 'banniere.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/connexion.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+
+
+{% if user.is_authenticated %}
+<form>
+	<p class= 'error'>C'est l'histoire d'un muet qui dit à un sourd qu'un aveugle l'espionne. <br/> ...<br/>...<br/>
+
+	Quoi ? 
+		Ca n'a pas de sens ? <br/>
+		Pas plus que d'aller sur une page de connexion quand on est déjà connectés!</p>
+	<!-- <p><a href="{{ request.META.HTTP_REFERER }}">Précédemment</a></p> -->
+</form>
+{% else %}
+
+
+
+	<form method="post" action="">
+
+		{% if error %}
+			<p class="error"><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong> <br/>
+			Essaie encore :3 </p>
+		{% endif %}
+
+		<h1>Se connecter</h1>
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <button type="submit">Se connecter </button>
+	</form>
+
+
+{% endif %}
+
+
+{% endblock %}

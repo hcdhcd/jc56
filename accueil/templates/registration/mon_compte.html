@@ -1,0 +1,278 @@
+{% extends 'banniere.html' %}
+{% load static thumbnail %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'registration/mon_compte.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bodyPos.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+
+	<section id="banRose">
+		
+		<p>
+			{% thumbnail user.profil.avatar "290x290" as im %}
+						<img src="{{ im.url }}">
+			{% endthumbnail %}
+		<p>
+		<h1>{{user.username}} </h1>
+		<p>{{user.email}} </p>
+		<p>Vous êtes inscrit à la newsletter</p>
+		<p>Vous aves posté x commentaires</p>
+
+	</section>
+	
+
+	<section id="banBleue">
+		
+			
+		<h1 onclick="hide('jec')" id='jec'>		MES JEUX EN	COURS		</h1>
+
+		
+
+		<!-- <article class="avancement_details">
+
+			<div>
+				<p>
+					{% thumbnail jeux.1.photo "190x190" as im %}
+					<img src="{{ im.url }}">
+					{% endthumbnail %}
+				</p>	
+					<figcaption> {{ jeux.first.nom }}</figcaption>
+					<p>Progression : 60%</p>
+			</div>
+				
+			<div id=div2>
+				<h2>En cours : </h2>
+				<ul class="liste1">
+					<ul class="liste2"><h3>Principal</h3>
+						<li>Chapitre 11</li>
+						<li>Chapitre 11</li>
+						<li>Chapitre 11</li>
+						<li>Chapitre 11</li>
+						<li>Chapitre 11</li>
+						<li>Chapitre 11</li>
+						<li>Chapitre 11</li>
+					</ul>
+
+					<ul class="liste2"><h3>Quêtes annexes</h3>
+						<li>Code secret</li>
+						<li>De l'or, de l'or</li>
+						<li>Langue fallacieuse</li>
+						<li>dépôt d'or</li>
+					</ul>
+
+					<ul class="liste2"><h3>Trophées</h3>
+						<li>Code secret</li>
+						<li>De l'or, de l'or</li>
+						<li>Langue fallacieuse</li>
+						<li>dépôt d'or</li>
+					</ul>
+				</ul>
+
+				<h2>Terminé : </h2>
+				<ul class="liste1">
+					<ul class="liste2"><h3>Histoire</h3>
+						<li>Chapitre 6</li>
+						<li>Gloire</li>
+						<li>Empire Ottoman</li>
+						<li>Fantôme</li>
+						<li>Sorcières de Salem</li>
+					</ul>
+
+					<ul class="liste2"><h3>Quêtes annexes</h3>
+						<li>Code secret</li>
+						<li>De l'or, de l'or</li>
+						<li>Langue fallacieuse</li>
+						<li>dépôt d'or</li>
+					</ul>
+
+					<ul class="liste2"><h3>Trophées</h3>
+						<li>Code secret</li>
+						<li>De l'or, de l'or</li>
+						<li>Langue fallacieuse</li>
+						<li>dépôt d'or</li>
+					</ul>
+					
+				</ul>
+					
+			</div>
+
+		</article> -->
+
+		
+		<article class="listejeux">
+
+			
+				
+				{% for jeu in jeux %}
+
+				<figure >	
+					{% thumbnail jeu.photo "130x130" as im %}
+						<img src="{{ im.url }}" onclick="details('jec')">
+						<figcaption> <a href="{% url 'JeuSommaire' jeu.nom %}" title="{{ jeu.nom }}"> {{ jeu.nom }} </a></figcaption>
+						{% endthumbnail %}
+						
+				</figure>	
+					
+				{% endfor %}
+				
+			
+		</article>
+
+		<h1 onclick="hide('jt')" id='jt'>MES JEUX TERMINES  </h1>
+		<article class="listejeux">
+				
+				{% for jeu in jeux %}
+
+				<figure >{{ genre }}
+					{% thumbnail jeu.photo "130x130" as im %}
+						<img src="{{ im.url }}" onclick="details('jt')">
+						<figcaption><a href="{% url 'JeuSommaire' jeu.nom %}" title="{{ jeu.nom }}"> {{ jeu.nom }} </a></figcaption>
+						{% endthumbnail %}
+				
+						
+				</figure>	
+					
+				{% endfor %}
+				
+			
+		</article>
+
+
+
+		<h1 onclick="hide('mc')" id ='mc'>	MES CONTRIBUTIONS</h1>
+			<article>
+				Cette fonction n'est pas encore implémentée, merci de patienter.
+
+			</article>
+
+<!-- <span id ='fancy'></span>
+
+	</section> -->
+
+
+
+<script >
+function toggle(elemID) {
+var elem = document.getElementById(elemID);
+alert(elem);
+if (elem.style.display == 'flex') {
+elem.style.display = 'none';	
+} else {
+elem.style.display = 'flex';	
+}
+
+
+}
+
+function hide(elemID) {
+	var titre = document.getElementById(elemID);
+	var elem = titre.nextElementSibling ;
+	
+	if (getComputedStyle(elem).display != 'none') {
+		elem.style.display = 'none';	
+		titre.style.background = "url('../../static/images/minus.png') no-repeat 5px 2px";
+		titre.style.margin = "10px 20px 30px 36px";
+	} 
+	else {
+		elem.style.display = 'flex';
+		titre.style.margin = "10px 20px 0px 36px";
+		titre.style.background = "url('../../static/images/plus.png') no-repeat 5px 2px";	
+	}
+
+}
+
+/*function detailsans(elemID)	{
+	var parent= document.getElementById(elemID);
+	var cekejevire = parent.firstChild.nextElementSibling.nextElementSibling;
+
+
+	if (cekejevire.className == "listejeux"){
+		parent.replaceChild(document.createElement('article'), cekejevire	);
+		var cekejajoute =  parent.firstChild.nextElementSibling.nextElementSibling;
+		cekejajoute.className = 'avancement_details';
+		
+		
+		cekejajoute.innerHTML = "<div><p>{% thumbnail jeux.1.photo '190x190' as im %}<img src='{{ im.url }}'>{% endthumbnail %}</p>	<figcaption> {{ jeux.first.nom }}</figcaption><p>Progression : 60%</p><button id='retour' onclick=\"details('banBleue');\">Retour</button><button>Modifier</button></div><div id='div2'><h2>En cours : </h2><ul class='liste1'><ul class='liste2'><h3>Principal</h3><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li></ul><ul class='liste2'><h3>Quêtes annexes</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul><ul class='liste2'><h3>Trophées</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul></ul><h2>Terminé : </h2><ul class='liste1'><ul class='liste2'><h3>Histoire</h3><li>Chapitre 6</li><li>Gloire</li><li>Empire Ottoman</li><li>Fantôme</li><li>Sorcières de Salem</li></ul><ul class='liste2'><h3>Quêtes annexes</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul><ul class='liste2'><h3>Trophées</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul></ul></div>";
+	
+	
+
+
+	}
+	else { 
+
+		parent.replaceChild(document.createElement('article'), cekejevire);
+		var cekejajoute =  parent.firstChild.nextElementSibling.nextElementSibling;
+		cekejajoute.className = 'listejeux';
+		cekejajoute.innerHTML = "{% for jeu in jeux %}<figure >	{% thumbnail jeu.photo '130x130' as im %}<img src='{{ im.url }}' onclick=\"details('banBleue')\"><figcaption> <a href=\"{% url 'JeuSommaire' jeu.nom %}\" title=\"{{ jeu.nom }}\"> {{ jeu.nom }} </a> </figcaption>{% endthumbnail %}</figure>	{% endfor %}"
+
+
+	}
+
+	
+}
+*/
+
+function details(elemID)	{
+	var parent= document.getElementById('banBleue');
+	if (elemID == "jt"){
+			var cekejevire =  parent.firstChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+		}
+		if (elemID == "jec") {
+			var cekejevire =  parent.firstChild.nextElementSibling.nextElementSibling;
+		}
+
+
+
+	if (cekejevire.className == "listejeux"){
+		parent.replaceChild(document.createElement('article'), cekejevire	);
+	
+
+		if (elemID == "jt"){
+			var cekejajoute =  parent.firstChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+		}
+		if (elemID == "jec") {
+			var cekejajoute =  parent.firstChild.nextElementSibling.nextElementSibling;
+		}
+
+		cekejajoute.className = 'avancement_details';
+		
+		
+		ceketext = "<div><p>{% thumbnail jeux.1.photo '190x190' as im %}<img src='{{ im.url }}'>{% endthumbnail %}</p>	<figcaption> {{ jeux.first.nom }}</figcaption><p>Progression : 60%</p><button id='retour' onclick=\"details('"
+			+ elemID +
+			"');\">Retour</button><button>Modifier</button></div><div id='div2'><h2>En cours : </h2><ul class='liste1'><ul class='liste2'><h3>Principal</h3><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li><li>Chapitre 11</li></ul><ul class='liste2'><h3>Quêtes annexes</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul><ul class='liste2'><h3>Trophées</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul></ul><h2>Terminé : </h2><ul class='liste1'><ul class='liste2'><h3>Histoire</h3><li>Chapitre 6</li><li>Gloire</li><li>Empire Ottoman</li><li>Fantôme</li><li>Sorcières de Salem</li></ul><ul class='liste2'><h3>Quêtes annexes</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul><ul class='liste2'><h3>Trophées</h3><li>Code secret</li><li>De l'or, de l'or</li><li>Langue fallacieuse</li><li>dépôt d'or</li></ul></ul></div>";
+	
+		cekejajoute.innerHTML = ceketext;
+
+
+	}
+	else { 
+
+		parent.replaceChild(document.createElement('article'), cekejevire);
+		if (elemID == "jt"){
+			var cekejajoute =  parent.firstChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+		}
+		if (elemID == "jec") {
+			var cekejajoute =  parent.firstChild.nextElementSibling.nextElementSibling;
+		}
+		cekejajoute.className = 'listejeux';
+		ceketext = "{% for jeu in jeux %}<figure >	{% thumbnail jeu.photo '130x130' as im %}<img src='{{ im.url }}' onclick=\"details('"
+					+ elemID +
+					"')\"><figcaption> <a href=\"{% url 'JeuSommaire' jeu.nom %}\" title=\"{{ jeu.nom }}\"> {{ jeu.nom }} </a> </figcaption>{% endthumbnail %}</figure>	{% endfor %}";
+
+		cekejajoute.innerHTML = ceketext;
+
+
+	}
+
+	
+}
+
+</script>
+
+
+
+{% endblock %}

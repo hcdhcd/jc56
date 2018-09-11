@@ -1,0 +1,150 @@
+@font-face {
+	font-family: 'renner';
+	src: url('../../static/police/Renner/Renner_ 400 Book.ttf');
+}
+
+@font-face {
+	font-family: 'steelfish';
+	src: url('../../static/police/steelfish/steelfish rg.ttf');
+}
+
+@font-face {
+	font-family: 'DreamOrphans';
+	src: url('../../static/police/dream_orphans/dream orphans bd.ttf');
+}
+
+body{
+	min-height: 100vh;
+}
+
+
+
+
+#content #banBleue {
+	
+	background: #4a9382;
+	background-size: cover;
+	display: flex;
+	flex-flow: column nowrap;
+
+
+
+}
+#content #banBleue h1 {
+	background: url('../../static/images/plus.png') no-repeat 5px 2px;
+	
+	margin: 10px 20px 0px 36px;
+	line-height: 25px;
+	padding: 0 0px 0 30px;
+	border-bottom: solid white 2px;
+
+	
+}
+#content #banBleue article {
+	
+	
+	margin: 15px 40px 20px 0px;
+	padding: 0 0 0 55px;
+	width: calc(100% - 55px);
+	
+}
+#content #banBleue .listejeux {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	justify-content: left;
+}
+
+#content figure {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	padding: 10px 20px 10px 0px;
+	width: 130px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+
+	
+
+
+}
+
+
+
+#content figure:hover {
+	
+	display: flex;
+	flex-flow: column wrap;
+	
+	padding: 15px 25px 10px 5px;
+	margin:  0 0 -5px 0;
+		
+	width: 130px;
+	overflow: visible;
+	white-space: normal;
+	text-align: center;
+
+}
+
+
+
+#content figure figcaption{
+	width: 130px;
+	overflow: hidden;
+
+}
+
+
+
+
+
+#content .avancement_details{
+	display: flex;
+	flex-direction: row;
+	
+}
+
+#content .avancement_details p {
+	margin-top: 20px;
+	
+}
+
+ #content .avancement_details #div2 {
+ 	flex: 1;
+ 	margin:  0 0 0 30px;
+ 	
+ }
+ #content .avancement_details #div1 {
+ 	margin: 0 0 0 36px;
+ 	
+ }
+
+#content .avancement_details .liste1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 100%;
+	margin: 0 60px 0 0px;
+	padding: 0 50px 0 20px;
+	border: 1px solid white;
+
+
+}
+
+#content .avancement_details .liste2{
+	
+}
+
+#fancy {
+	background: pink;
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	width: 600px;
+	height: 1000px;
+	top: 150px;
+	left : 150px;
+
+}

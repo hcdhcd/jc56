@@ -1,0 +1,57 @@
+{% extends 'banniere.html' %}
+{% load thumbnail static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/guide.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bodyPos.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+	
+		<form id = "banRose" method="GET" >
+			<button type="submit" form="banRose"> Rechercher !</button>
+
+		
+
+			
+			{{ form.as_p }}</p>
+
+
+			<button type="submit" form="banRose"> Rechercher !</button>
+		</form>
+		
+	
+
+
+	<section id="banBleue">
+
+
+		{% for jeu in jeux %}
+		
+		<article>
+
+
+			<h3>	<a href="guide/{{jeu.slug }}">{{ jeu.nom }}	</a></h3>
+				<ul>
+					<li>Genres : {% for genre in jeu.genre.all %}	{{ genre }} / {% endfor %}</li>
+					<li>	Déconseillé aux moins de {{jeu.censure}} ans	</li>
+				</ul>
+				
+			
+
+		</article>	
+
+		{% empty %}
+			<p>Aucun article.</p>
+		{% endfor %}
+
+	</section>
+	
+
+
+
+
+
+{% endblock %}

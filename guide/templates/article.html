@@ -1,0 +1,228 @@
+
+
+{% extends slug %}
+{% load static thumbnail %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/commentaire.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/ArticleContent.css' %}">
+
+<link href="{% static 'lightbox/src/css/lightbox.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+
+	
+		
+	
+
+{% block content %}
+
+		
+
+		<nav id="sommaire">
+			
+				{% thumbnail jeu.photo "290x290" crop="center" as im %}
+					<img src="{{ im.url }}" id="photoJeu">
+				{% endthumbnail %}
+
+					
+				<p id="TitrePhotoJeu"><a href="{% url 'JeuSommaire' jeu.slug %}">	{{jeu.nom}}	</a></p>
+			
+			<p>Missions principales</p>
+			<ul>
+				<li>Chapitre 1 : Village Banga</li>
+				<li>Chapitre 2 : Jirga Para Lhao</li>
+				<li>Chapitre 3 : Hekseville</li>
+				<li>Chapitre 4 :</li>
+
+			</ul>
+			<p>Missions annexes</p>
+			<p>Guides des trophées</p>
+			<ul>
+				<li>Fresques de Saghassi : Jirga Para Lhao</li>
+				<li>Fresques de Saghassi : Hekseville</li>
+				<li>Panoramas de Jirga Para Lhao</li>
+				<li>Panoramas d'Hekseville</li>
+				<li>Portraits de Femmes</li>
+				<li>Portraints d'Hommes</li>
+			</ul>
+
+		</nav>
+
+		
+
+		<section id="contenu">
+			
+			<article>
+				 <h1>GRAVITY RUSH 2 - Portraits de femmes</h1>
+
+					<p>22 Février 2018 Publié dans #Gravity Rush 2</p>
+
+					<p>Guide de la collection de portraits de femmes, vous permettant de débloquer le trophée "Un sourire pour la caméra".<br/>
+
+					Les personnages à photographier se tiendront immobiles à des endroits précis (inutile de chercher quelqu'un qui jardine même si c'est sa description).<br/>
+					Si le trophée ne vous intéresse pas sliquez sur les boutons afficher pour voir les commentaires débloqués.<br/><br/>
+					Portrait de femme 1
+					Port central, "Marini Portolhao"
+					Une femme à la coiffure afro faisant un peu de jardinage sur un toit.
+					 
+					Une femme se tenant immobile sur un toit avec deux plantes qui se battent en duel.
+					Guide de la collection de portraits de femmes, vous permettant de débloquer le trophée "Un sourire pour la caméra".
+Les personnages à photographier se tiendront immobiles à des endroits précis (inutile de chercher quelqu'un qui jardine même si c'est sa description).
+Si le trophée ne vous intéresse pas sliquez sur les boutons afficher pour voir les commentaires débloqués.
+
+Portrait de femme 1 Port central, "Marini Portolhao" Une femme à la coiffure afro faisant un peu de jardinage sur un toit. Une femme se tenant immobile sur un toit avec deux plantes qui se battent en duel.Guide de la collection de portraits de femmes, vous permettant de débloquer le trophée "Un sourire pour la caméra".
+Les personnages à photographier se tiendront immobiles à des endroits précis (inutile de chercher quelqu'un qui jardine même si c'est sa description).
+Si le trophée ne vous intéresse pas sliquez sur les boutons afficher pour voir les commentaires débloqués.
+
+Portrait de femme 1 Port central, "Marini Portolhao" Une femme à la coiffure afro faisant un peu de jardinage sur un toit. Une femme se tenant immobile sur un toit avec deux plantes qui se battent en duel.Guide de la collection de portraits de femmes, vous permettant de débloquer le trophée "Un sourire pour la caméra".
+Les personnages à photographier se tiendront immobiles à des endroits précis (inutile de chercher quelqu'un qui jardine même si c'est sa description).
+Si le trophée ne vous intéresse pas sliquez sur les boutons afficher pour voir les commentaires débloqués.
+
+s permettant de débloquer le trophée "Un sourire pour la caméra".
+Les personnages à photographier se tiendront immobiles à des endroits précis (inutile de chercher quelqu'un qui jardine même si c'est sa description).
+Si le trophée ne vous intéresse pas sliquez sur les boutons afficher pour voir les commentaires débloqués.
+
+Portrait de femme 1 Port central, "Marini Portolhao" Une femme à la coiffure afro faisant un peu de jardinage sur un toit. Une femme se tenant immobile sur un toit avec deux plantes qui se battent en duel.</p>
+
+				<figure>
+					{% thumbnail jeu.photo "290x290" as im %}
+				<a href="{{ im.url }}" data-lightbox="imd" data-title="My caption" >	<img src="{{ im.url }}" > </a>
+				{% endthumbnail %}
+				{% thumbnail jeu.photo "290x290" as im %}
+				<a href="{{ im.url }}" data-lightbox="imd" data-title="My caption" >	<img src="{{ im.url }}" > </a>
+				{% endthumbnail %}
+				{% thumbnail jeu.photo "290x290" as im %}
+				<a href="{{ im.url }}" data-lightbox="imd" data-title="My caption" >	<img src="{{ im.url }}" > </a>
+				{% endthumbnail %}
+				</figure>
+				
+			</article>
+		</section>
+
+	
+
+	
+
+{% endblock%}
+
+
+
+
+
+
+{% block footer %} 
+
+	<div id='publication'>
+
+			{% if user.is_authenticated == False %}
+				
+				<p id="warning"> Vous n'êtes pas connecté, <a href="../../connexion"> CONNEXION </a> ou <a href="../../connexion"> INSCRIPTION </a> </p> 
+			{% endif %}
+		
+				<!-- <p id="com">COMMENTAIRE</p> -->
+				
+						  
+			
+
+				<form action="" method="post" id="publication_commentaire">
+
+					{% csrf_token %}
+					{{ form.as_p }}
+
+				{% if user.is_authenticated == False %}		
+					<p>	Vous n'êtes pas connecté, une fois publié votre commentaire ne sera pas éditable. <input type="checkbox" required /> </p>
+
+				{% endif %}
+
+						<button form="publication_commentaire" type="submit" > COMMENTEZ ! </button>	
+
+				</form> 
+	
+	</div>
+
+
+	<div id="article_commentaires">
+
+		{% for commentaire in commentaires %}
+
+		<div class ='commentaires_conteneur'>
+
+					<p id="imageconteneur">	<img src="{{  commentaire.pseudo.avatar.url }}"/>	</p>
+						
+			<div class ='commentaire'>
+
+					<div class='DetailsParution'> <p> Publié par 
+						<b>{{ commentaire.pseudo }}</b>, le {{commentaire.date.date}} à {{commentaire.date.time}}</p>
+
+
+
+					{% if user == commentaire.pseudo.user %}
+
+
+										<form method="POST" action="" class="DetailsParution" id="editer">
+											{% csrf_token %}
+											<input type="text" name="comm_id" value=" {{ commentaire.id }} " class ="hidden">
+											<button  type="submit" > Éditer </button>
+											
+										</form>
+												
+										<form method="POST" action="" class="DetailsParution" id="supprimer">
+											{% csrf_token %}
+											<input type="text" name="delete_comm_id" value=" {{ commentaire.id }} " class ="hidden">
+											
+											<button  type="submit" > Supprimer </button>
+										</form>
+<!-- Fin DetailsParution-->
+					</div>
+
+										{% if com_id == commentaire.id %}
+
+											<form method="POST" action="">
+												{% csrf_token %}
+												<textarea id ="edition_commentaire" name="edition_commentaire" required autofocus>{{commentaire.commentaire}}</textarea>
+												<input type="text" name="comm_id" value=" {{ commentaire.id }} " class ="hidden">
+												<button  type="submit" >Éditer</button>
+											</form>
+
+
+										{% else %}
+
+
+										<p class="com_message">{{commentaire.commentaire|linebreaks}}</p> 
+
+										{% endif %}
+						
+				{% else %}
+
+<!-- Fin Details Parution-->
+					</div>				
+				<p class="com_message">{{commentaire.commentaire|linebreaks}}</p> 
+					
+
+				{% endif %}
+
+<!-- Fin Commentaire -->
+			</div>
+				
+				
+<!-- Fin commentaires_conteneur -->		
+		</div>
+
+		{% empty %}
+				<p>Soyez le premier à poster un commentaire !</p>
+		
+
+		{% endfor %}
+
+
+<!-- Fin article_commentaire -->	</div>
+
+<script src="{% static 'lightbox/dist/js/lightbox-plus-jquery.js' %}">
+</script>
+ 
+{% endblock %}
+

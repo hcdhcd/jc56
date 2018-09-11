@@ -1,0 +1,22 @@
+{% extends 'banniere.html'%}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'registration/inscription.css' %}">
+
+
+{% endblock %}
+
+{% block content %}
+
+
+	<form action="" method="POST">
+		<h1>Inscription</h1>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit"> S'inscrire </button>
+
+	</form>
+
+
+{% endblock %}

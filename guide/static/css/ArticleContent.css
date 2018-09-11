@@ -1,0 +1,116 @@
+@font-face {
+	font-family: 'renner';
+	src: url('../../static/police/Renner/Renner_ 400 Book.ttf');
+}
+
+@font-face {
+	font-family: 'steelfish';
+	src: url('../../static/police/steelfish/steelfish rg.ttf');
+}
+
+@font-face {
+	font-family: 'DreamOrphans';
+	src: url('../../static/police/dream_orphans/dream orphans bd.ttf');
+}
+
+@font-face {
+	font-family: 'comfortaa';
+	src: url('../../static/police/comfortaa/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'sansation';
+	src: url('../../static/police/sansation/Sansation_Bold.ttf');
+}
+
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ a, a:visited  {
+	
+	font-style: none;
+	text-decoration: none;
+	color: black;
+}
+
+body {
+background: rgb(253, 253, 253);
+}
+
+
+#content {
+	display: flex;
+	flex-direction: row;
+	font-family: renner;
+	margin: 0;
+	padding: 0;
+}
+
+#sommaire {
+	background: rgb(239, 239, 239);
+	width: 350px;
+	padding: 0 0 30px 0;
+
+}
+
+#sommaire p {
+	font-family: sansation;
+	font-size:15px;
+	text-align: center;
+	margin:  10px 0 15px 0;
+	color: rgb(20, 20, 20);
+
+}
+
+#sommaire #TitrePhotoJeu {
+	background: none;
+	padding: 0;
+	font-size: 30px;
+	font-family: steelfish;
+
+
+}
+
+
+#sommaire ul {
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0 10px 0 20px;
+
+}
+
+#sommaire ul li{
+	padding: 5px 0 5px 0;
+	text-align: justify;
+	white-space: pre-wrap;
+	font-family: arial;
+	font-weight: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#content section {
+	margin: 30px 40px 0 40px;
+	padding: 0;
+
+}
+
+#content h1 {
+	margin: 0;
+	padding: 0;
+}

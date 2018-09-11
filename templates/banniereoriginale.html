@@ -1,0 +1,96 @@
+{% load static %}
+{% load thumbnail %}
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<title>{% block title %} {% endblock %}</title>
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/banniere.css' %}">
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/DefaultBody.css' %}">
+		{% endblock %}
+
+	</head>
+
+
+	<body >
+	<header> 
+	{% block header %}
+
+
+
+		<h1> <a href="{% url 'accueil' %}"> JeanClaude56</h1></a>  </h1> 
+
+		<nav id="nav_banniere">
+			<ul>
+				
+				<div>
+					<a href="{% url 'guide' %}">	<li>Jeux</li>	</a>
+					<a href="{% url 'guide' %}">	<li>Actus</li>	</a>
+				</div>
+
+				<div>
+					<a href="{% url 'contact' %}">	<li>Contact</li>	</a>
+					<a href="{% url 'ArticleVue' 'gravity_rush2' 'algorithme' %}"> <li>	algorithme</li>	</a>
+				</div>
+
+				{% if user.is_authenticated %}
+					<div>
+						<li>Bienvenue {{user.username}}</li>
+						<li>	<a href="{% url 'deconnexion' %}">Deconnexion</a></li>
+					
+					</div>
+			</ul>
+				{% else %}
+					
+
+					<div>
+					
+						<a href="{% url 'connexion' %}">	<li>Connexion</li>	</a>
+						<a href="{% url 'inscription' %}">	<li>Inscription</li>	</a>
+					</div>
+
+			</ul>
+				{% endif %}
+				
+			
+		</nav>
+
+	{% endblock %}
+	</header>
+
+
+
+
+
+	{% block nav %}
+	{% endblock %}
+		
+	<div id="mise_en_page">
+
+			<section id='content'>
+					{% block content %}
+					{% endblock %}
+			</section>
+				
+			<footer> {% block footer %} 
+				 
+
+					{% endblock %}
+			</footer>
+
+	</div>
+		
+
+	
+
+	</body>
+
+</html>
